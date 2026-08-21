@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://welcomeourofhere.github.io/bio-curl-site/sitemap.xml
