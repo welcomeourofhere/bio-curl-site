@@ -26,6 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    alert('Форма работает. Добавьте номер WhatsApp или Telegram в script.js для получения заявок.');
+    alert('Форма готова. Добавьте номер WhatsApp или Telegram в script.js для получения заявок.');
   });
+
+  const animatedBlocks = document.querySelectorAll('section, .hero .container, .card, .gallery img');
+
+  animatedBlocks.forEach((block) => block.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  animatedBlocks.forEach((block) => observer.observe(block));
 });
