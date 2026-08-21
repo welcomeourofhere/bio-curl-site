@@ -11,6 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    alert('Спасибо! Заявка подготовлена. Подключите WhatsApp, Telegram или CRM для отправки данных.');
+    const message = `Здравствуйте. Хочу записаться на биозавивку. Имя: ${name}. Телефон: ${phone}`;
+
+    const telegramUsername = '';
+    const whatsappNumber = '';
+
+    if (whatsappNumber) {
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      return;
+    }
+
+    if (telegramUsername) {
+      window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`, '_blank');
+      return;
+    }
+
+    alert('Форма работает. Добавьте номер WhatsApp или Telegram в script.js для получения заявок.');
   });
 });
