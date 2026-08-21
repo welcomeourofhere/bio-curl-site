@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const animatedBlocks = document.querySelectorAll('section, .hero .container, .card, .gallery img');
-
   animatedBlocks.forEach((block) => block.classList.add('reveal'));
 
   const observer = new IntersectionObserver((entries) => {
@@ -43,4 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.12 });
 
   animatedBlocks.forEach((block) => observer.observe(block));
+
+  document.querySelectorAll('.before-after').forEach((item) => {
+    const range = item.querySelector('input[type="range"]');
+    const after = item.querySelector('.after');
+
+    if (range && after) {
+      range.addEventListener('input', () => {
+        after.style.width = `${range.value}%`;
+      });
+    }
+  });
 });
